@@ -10,9 +10,12 @@ const vod  = vodDoco();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static(__dirname + '/public'));
+app.use('/assets', express.static(__dirname + '/resources'));
 
 app.get('/', function(req, res) {
-    res.send(vod.greetings());
+    res.sendFile(`${__dirname}/index.html`);
+
 });
 
 app.get('/app', function(req, res) {
