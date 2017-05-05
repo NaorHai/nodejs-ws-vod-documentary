@@ -12,7 +12,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', function(req, res) {
-    res.json(vod.greetings());
+    res.send(vod.greetings());
+});
+
+app.get('/app', function(req, res) {
+    res.json({appName: 'nodejs-ws-vod-documentary',
+        createdBy: 'Naor Haimov',
+        language: 'NodeJs',
+        port: port,
+        year: 2017});
 });
 
 app.get('/getAllDocos', function(req, res) {

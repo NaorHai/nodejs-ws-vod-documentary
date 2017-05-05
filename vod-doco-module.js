@@ -28,7 +28,25 @@ class VOD {
     }
 
      greetings() {
-        return {appName: 'nodejs-ws-vod-documentary', createdBy: 'Naor Haimov'};
+       return `<!DOCTYPE html>
+        <html>
+        <head>
+        <title>DocoVOD</title>
+        </head>
+        <body>
+        <h1>Welcome To Doco VOD Web Service</h1>
+        <h3>Get all docos from VOD (GET no params required):</h3>
+        <p><a target="_blank" href="https://nodejs-ws-vod-documentary.herokuapp.com/getAllDocos">
+        https://nodejs-ws-vod-documentary.herokuapp.com/getAllDocos</a></p><br>
+        <h3>Get doco from VOD by name (POST 'name' param required):</h3>
+        <p><a target="_blank" href="https://nodejs-ws-vod-documentary.herokuapp.com/getDocoDataByName">
+        https://nodejs-ws-vod-documentary.herokuapp.com/getDocoDataByName</a></p><br>
+        <h3>Filter docos by minimum year and duration (POST 'year' and 'duration' params required):</h3>
+        <p><a target="_blank" href="https://nodejs-ws-vod-documentary.herokuapp.com/filterDocosByMinYearAndDuration">
+        https://nodejs-ws-vod-documentary.herokuapp.com/filterDocosByMinYearAndDuration</a></p><br><br>
+        <a target="_blank" href="https://nodejs-ws-vod-documentary.herokuapp.com/app">About this WS</a>
+        </body>
+        </html>`;
     }
 }
 
