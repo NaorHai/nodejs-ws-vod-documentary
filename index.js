@@ -11,6 +11,10 @@ const vod  = vodDoco();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.get('/', function(req, res) {
+    res.json(VOD.greetings());
+});
+
 app.get('/getAllDocos', function(req, res) {
     res.json(VOD.getAllDocos());
 });

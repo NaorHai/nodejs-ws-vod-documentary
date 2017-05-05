@@ -26,6 +26,10 @@ class VOD {
         });
         return result.length === 0 ? null : result;
     }
+
+    static greetings() {
+        return {appName: 'nodejs-ws-vod-documentary', createdBy: 'Naor Haimov'};
+    }
 }
 
 module.exports = () =>{
