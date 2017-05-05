@@ -5,7 +5,7 @@ Docos = require('./resources/data.json').Doco;
 
 class VOD {
 
-    static getAllDocos() { return Docos; }
+    getAllDocos() { return Docos; }
 
     getDocoDataByName(name) {
          let index = -1; 
@@ -27,7 +27,7 @@ class VOD {
         return result.length === 0 ? null : result;
     }
 
-    static greetings() {
+     greetings() {
         return {appName: 'nodejs-ws-vod-documentary', createdBy: 'Naor Haimov'};
     }
 }

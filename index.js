@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', function(req, res) {
-    res.json(VOD.greetings());
+    res.json(vod.greetings());
 });
 
 app.get('/getAllDocos', function(req, res) {
-    res.json(VOD.getAllDocos());
+    res.json(vod.getAllDocos());
 });
 
 app.post('/getDocoDataByName', function(req, res, next) {
