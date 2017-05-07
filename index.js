@@ -10,15 +10,13 @@ const vod  = vodDoco();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname + '/public'));
 app.use('/assets', express.static(__dirname + '/resources'));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) =>{
     res.sendFile(`${__dirname}/index.html`);
-
 });
 
-app.get('/app', function(req, res) {
+app.get('/app', (req, res) =>{
     res.json({appName: 'nodejs-ws-vod-documentary',
         createdBy: 'Naor Haimov',
         language: 'NodeJs',
@@ -26,21 +24,21 @@ app.get('/app', function(req, res) {
         year: 2017});
 });
 
-app.get('/getAllDocos', function(req, res) {
+app.get('/getAllDocos', (req, res)=> {
     res.json(vod.getAllDocos());
 });
 
-app.post('/getDocoDataByName', function(req, res, next) {
+app.post('/getDocoDataByName', (req, res, next)=> {
     let result = vod.getDocoDataByName(req.body.name);
     result === null ? next() : res.json(result);
 });
 
-app.post('/filterDocosByMinYearAndDuration', function(req, res, next) {
+app.post('/filterDocosByMinYearAndDuration', (req, res, next)=> {
     let result = vod.filterDocosByMinYearAndDuration(req.body.year, req.body.duration);
     result === null ? next() : res.json(result);
 });
 
-app.all('*', function(req, res) {
+app.all('*', (req, res)=> {
     res.json({
         "status":"404",
         "error": "No results found",
