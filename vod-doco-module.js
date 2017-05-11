@@ -9,7 +9,7 @@ class VOD {
 
     getDocoDataByName(name) {
          let index = -1; 
-         Docos.find((item, i)=> { 
+         Docos.find((item, i) => { 
              if(item.name === name) { 
                  index = i; 
              } 
@@ -19,7 +19,7 @@ class VOD {
 
     filterDocosByMinYearAndDuration(year, duration) {
         let result = [];
-        Docos.forEach((doco)=> {
+        Docos.forEach((doco) => {
             if (doco.year >= year && doco.duration >= duration) {
                 result.push(doco);
             }
@@ -28,7 +28,7 @@ class VOD {
     }
 }
 
-module.exports = () =>{
+module.exports = () => {
     return new VOD();
 };
 

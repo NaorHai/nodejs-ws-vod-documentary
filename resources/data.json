@@ -5,6 +5,7 @@
       "name": "Photo Farag",
       "based": "Kobi Faraj's film about his family and the stories of the ten brothers and sisters who immigrated from Baghdad in the fifties and climbed the ladder of success from the camp to the palace, and the riddle of the painful disintegration of the first photography family in Israel",
       "duration": 77,
+      "year": 2016,
       "language": ["Hebrew"],
       "country": ["Israel"],
       "cast": [
@@ -18,13 +19,12 @@
         {"name": "Kobi Farag",
           "role": ["scriptor","director"]
         }
-      ],
-      "year": 2016
-    },
+      ]},
     {
       "name": "Sins of My Father",
       "based": "The story of Pablo Esocber, a Colombian drug dealer. Drug trafficking made Escobar so rich that he was rated by Forbes Magazine as seventh among the richest in the world. He is considered one of the most vicious, ambitious and powerful drug dealers in drug history.",
-      "duration": 94 ,
+      "duration": 94,
+      "year": 2009,
       "language": ["Spanish"],
       "country": ["Argentina", "Colombia"],
       "cast": [
@@ -35,13 +35,12 @@
         {"name": "Pablo Farina",
           "role": ["scriptor"]
         }
-      ],
-      "year": 2009
-    },
+      ]},
     {
       "name": "Super Size Me",
       "based": "Spurlock's film follows a 30-day period from February 1 to March 2, 2003, during which he ate only McDonald's food The film documents this lifestyle's drastic effect on Spurlock's physical and psychological well-being, and explores the fast food industry's corporate influence, including how it encourages poor nutrition for its own profit.",
       "duration": 98,
+      "year": 2004,
       "language": ["English"],
       "country": ["United States"],
       "cast": [
@@ -52,8 +51,28 @@
         {"name": "Julie Bob Lombardi",
           "role": ["editor"]
         }
-      ],
-      "year": 2004
-    }
+      ]},
+    {
+      "name": "Marley",
+      "based": "Marley is a 2012 documentary-biographical film directed by Kevin Macdonald documenting the life of Bob Marley.",
+      "duration": 145,
+      "year": 2012,
+      "language": ["English", "Jamaican Patois", "French"],
+      "country": ["United States", "United Kingdom", "Jamaica"],
+      "cast": [
+        {
+          "name": "evin Macdonald",
+          "role": ["director"]
+        },
+        {"name": "Charles Steele",
+          "role": ["producer"]
+        },
+        {"name": "Bob Marley",
+          "role": ["starring"]
+        },
+        {"name": "Dan Glendenning",
+          "role": ["editor"]
+        }
+      ]}
   ]
 }

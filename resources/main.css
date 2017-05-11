@@ -1,0 +1,24 @@
+body {
+    font-size: 80%;background: url(assets/wallpaper.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Arial',serif;"
+}
+#main {
+    background: #cccccc;
+    max-width: 500px;
+    padding: 10px;
+    margin-left: 40px;
+    background-color: rgba(0,0,0,.2);
+    border-radius:10px;
+}
+#dataModel {
+    background: #cccccc; max-width: 350px;
+    padding: 10px;
+    margin-left: 40px;
+    background-color: rgba(0,0,0,.1);
+    border-radius:15px;
+    margin-top: 40px;
+}

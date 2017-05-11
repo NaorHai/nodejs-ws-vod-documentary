@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="assets/main.css">
     <title>DocoVOD</title>
 </head>
-<body style=" font-size: 80%;background: url(assets/wallpaper.jpg) no-repeat center center fixed;
--webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;
-font-family: 'Arial',serif;">
-<div style="background: #cccccc; max-width: 500px; padding: 10px; margin-left: 40px;background-color: rgba(0,0,0,.2); border-radius:10px;">
+<body>
+<div id="main">
 <h1>Welcome To Doco VOD Web Service</h1>
 <h3>Get all docos from VOD (GET no params required):</h3>
 <p><a target="_blank" href="https://nodejs-ws-vod-documentary.herokuapp.com/getAllDocos">
@@ -19,19 +18,34 @@ font-family: 'Arial',serif;">
     https://nodejs-ws-vod-documentary.herokuapp.com/filterDocosByMinYearAndDuration</a></p><br><br>
 <a target="_blank" href="https://nodejs-ws-vod-documentary.herokuapp.com/app">About this WS</a>
 </div>
-<div style="background: #cccccc; max-width: 200px; padding: 10px; margin-left: 40px;
- background-color: rgba(0,0,0,.1); border-radius:15px; margin-top: 40px;">
+<div id="dataModel">
     <h3>Data Model Example:</h3>
-    <p> {<br>
+    <p>{<br>
         "name": "Marley",<br>
-        "based": "On Bob Marley's life.<br>
-        "duration": 145,<br>
-        "language": "Jamaican",<br>
-        "country": "Jamaica",<br>
-        "directedBy": "Kevin Macdonald",<br>
+    "based": "Marley is a 2012 documentary-biographical film directed by Kevin Macdonald documenting the life of Bob Marley.",        "name": "Marley",<br>
+        "duration": 145, <br>
         "year": 2012<br>
-    }</p>
-
+        "language": ["English", "Jamaican Patois", "French"],<br>
+        "country": ["United States", "United Kingdom", "Jamaica"],<br>
+        "cast": [<br>
+        {<br>
+        "name": "evin Macdonald",<br>
+        "role": ["director"]<br>
+        },<br>
+        {<br>
+        "name": "Charles Steele",<br>
+        "role": ["producer"]<br>
+        },<br>
+        {<br>
+        "name": "Bob Marley",<br>
+        "role": ["starring"]<br>
+        },<br>
+        {<br>
+        "name": "Dan Glendenning",<br>
+        "role": ["editor"]<br>
+        }]
+        }
+    </p>
 </div>
 </body>
 </html>
