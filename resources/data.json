@@ -5,27 +5,54 @@
       "name": "Photo Farag",
       "based": "Kobi Faraj's film about his family and the stories of the ten brothers and sisters who immigrated from Baghdad in the fifties and climbed the ladder of success from the camp to the palace, and the riddle of the painful disintegration of the first photography family in Israel",
       "duration": 77,
-      "language": "Hebrew",
-      "country": "Israel",
-      "directedBy": "Kobi Farag",
+      "language": ["Hebrew"],
+      "country": ["Israel"],
+      "cast": [
+        {
+          "name": "Gidi Weiz",
+          "role": ["scriptor"]
+        },
+        {"name": "Moris Ben Dior",
+          "role": ["scriptor", "editor"]
+        },
+        {"name": "Kobi Farag",
+          "role": ["scriptor","director"]
+        }
+      ],
       "year": 2016
     },
     {
       "name": "Sins of My Father",
       "based": "The story of Pablo Esocber, a Colombian drug dealer. Drug trafficking made Escobar so rich that he was rated by Forbes Magazine as seventh among the richest in the world. He is considered one of the most vicious, ambitious and powerful drug dealers in drug history.",
       "duration": 94 ,
-      "language": "Spanish",
-      "country": "Colombia",
-      "directedBy": "Nicolas Entel",
+      "language": ["Spanish"],
+      "country": ["Argentina", "Colombia"],
+      "cast": [
+        {
+          "name": "Nicolas Entel",
+          "role": ["director","scriptor"]
+        },
+        {"name": "Pablo Farina",
+          "role": ["scriptor"]
+        }
+      ],
       "year": 2009
     },
     {
       "name": "Super Size Me",
       "based": "Spurlock's film follows a 30-day period from February 1 to March 2, 2003, during which he ate only McDonald's food The film documents this lifestyle's drastic effect on Spurlock's physical and psychological well-being, and explores the fast food industry's corporate influence, including how it encourages poor nutrition for its own profit.",
       "duration": 98,
-      "language": "English",
-      "country": "United States",
-      "directedBy": "Morgan Spurlock",
+      "language": ["English"],
+      "country": ["United States"],
+      "cast": [
+        {
+          "name": "Morgan Spurlock",
+          "role": ["director","scriptor","producer","starring"]
+        },
+        {"name": "Julie Bob Lombardi",
+          "role": ["editor"]
+        }
+      ],
       "year": 2004
     }
   ]
