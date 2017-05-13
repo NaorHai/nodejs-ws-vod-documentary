@@ -1,30 +1,63 @@
 /**
  * Created by Haimov on 04/05/2017.
  */
-const Docos = require('./resources/data.json').Doco;
+const mongoose   = require('mongoose'),
+      config     = require('./config'),
+      Movies     = require('./vod-data-model'),
+      Promise    = require('promise');
+
 
 class VOD {
 
-    getAllDocos() { return Docos; }
+    getAllDocos() {
+        mongoose.connect(config.properties.MLAB_KEY);
+        mongoose.connection.on('error', (err) => {console.log(`connection error: ${err}`);});
+        return new Promise( (resolve,reject) =>{
+            mongoose.connection.once('open', () => {
+                Movies.find({}, (err, result) => {
+                    if (err) reject(err);
+                    else {
+                        console.log(result);
+                        resolve(result);
+                    }
+                    mongoose.disconnect();
+                });
+            });
+        });
+    }
 
     getDocoDataByName(name) {
-         let index = -1; 
-         Docos.find((item, i) => { 
-             if(item.name === name) { 
-                 index = i; 
-             } 
-         });
-        return index === -1 ? null : Docos[index];
+        mongoose.connect(config.properties.MLAB_KEY);
+        mongoose.connection.on('error', (err) => {console.log(`connection error: ${err}`);});
+        return new Promise( (resolve,reject) =>{
+            mongoose.connection.once('open', () => {
+                Movies.find({name: name}, (err, result) => {
+                    if (err) reject(err);
+                    else {
+                        console.log(result);
+                        resolve(result);
+                    }
+                    mongoose.disconnect();
+                });
+            });
+        });
     }
 
     filterDocosByMinYearAndDuration(year, duration) {
-        let result = [];
-        Docos.forEach((doco) => {
-            if (doco.year >= year && doco.duration >= duration) {
-                result.push(doco);
-            }
+        mongoose.connect(config.properties.MLAB_KEY);
+        mongoose.connection.on('error', (err) => {console.log(`connection error: ${err}`);});
+        return new Promise( (resolve,reject) =>{
+            mongoose.connection.once('open', () => {
+                Movies.find({year: year, duration: duration}, (err, result) => {
+                    if (err) reject(err);
+                    else {
+                        console.log(result);
+                        resolve(result);
+                    }
+                    mongoose.disconnect();
+                });
+            });
         });
-        return result.length === 0 ? null : result;
     }
 }
 

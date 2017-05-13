@@ -1,16 +1,18 @@
 const express    = require('express'),
-      bodyParser = require('body-parser');
-      vodDoco    = require('./vod-doco-module');
-      moment     = require('moment');
-      config     = require('./config');
+      bodyParser = require('body-parser'),
+      mongoose   = require('mongoose'),
+      vodDoco    = require('./vod-doco-module'),
+      vod        = vodDoco(),
+      moment     = require('moment'),
+      config     = require('./config'),
+      app        = express(),
+      port       = process.env.PORT || config.properties.PORT;
 
-const app  = express();
-const port = process.env.PORT || config.properties.PORT;
-const vod  = vodDoco();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/assets', express.static(__dirname + '/resources'));
+
 
 app.get('/', (req, res) =>{
     res.sendFile(`${__dirname}/index.html`);
@@ -24,18 +26,31 @@ app.get('/app', (req, res) =>{
         year: 2017});
 });
 
-app.get('/getAllDocos', (req, res)=> {
-    res.json(vod.getAllDocos());
+app.get('/getAllDocos', (req, res, next)=> {
+    vod.getAllDocos().then((result) => {
+        res.json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });
 });
 
 app.post('/getDocoDataByName', (req, res, next)=> {
-    let result = vod.getDocoDataByName(req.body.name);
-    result === null ? next() : res.json(result);
+    vod.getDocoDataByName(req.body.name).then((result) => {
+        res.json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });
 });
 
 app.post('/filterDocosByMinYearAndDuration', (req, res, next)=> {
-    let result = vod.filterDocosByMinYearAndDuration(req.body.year, req.body.duration);
-    result === null ? next() : res.json(result);
+    vod.filterDocosByMinYearAndDuration(req.body.year, req.body.duration).then((result) => {
+        res.json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });
 });
 
 app.all('*', (req, res)=> {
