@@ -8,12 +8,9 @@ const express    = require('express'),
       app        = express(),
       port       = process.env.PORT || config.properties.PORT;
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/assets', express.static(__dirname + '/resources'));
-
-
 
 app.get('/', (req, res) =>{
     res.sendFile(`${__dirname}/index.html`);
@@ -54,11 +51,12 @@ app.post('/filterDocosByMinYearAndDuration', (req, res, next)=> {
     });
 });
 
-app.all('*', (req, res, err)=> {
+app.all('*', (req, res)=> {
+    console.log('No results found');
     res.json({
         "status":"404",
-        "error": err ? "connection error" : "No results found",
-        "description": err || "The data is missing, or your query is invalid.",
+        "error": "No results found",
+        "description": "The data is missing, or your query is invalid.",
         "at": moment().format(config.messageTemplates.TIME_FORMAT)
     });
 });
