@@ -2,60 +2,51 @@
  * Created by Haimov on 04/05/2017.
  */
 const mongoose   = require('mongoose'),
-      config     = require('./config'),
       Movies     = require('./vod-data-model'),
-      Promise    = require('promise');
+      Promise    = require('promise'),
+      config    = require('./config');
 
+
+mongoose.connect(config.properties.MLAB_KEY);
+mongoose.connection.on('error', (err) => {
+    console.log(`connection error: ${err}`);
+    process.exit(1);
+});
 
 class VOD {
 
     getAllDocos() {
-        mongoose.connect(config.properties.MLAB_KEY);
-        mongoose.connection.on('error', (err) => {console.log(`connection error: ${err}`);});
-        return new Promise( (resolve,reject) =>{
-            mongoose.connection.once('open', () => {
-                Movies.find({}, (err, result) => {
-                    if (err) reject(err);
-                    else {
-                        console.log(result);
-                        resolve(result);
-                    }
-                    mongoose.disconnect();
-                });
+    return new Promise( (resolve,reject) =>{
+            Movies.find({}, (err, result) => {
+                if (err) reject(err);
+                else {
+                    console.log(`Got data from db: ${result}`);
+                    resolve(result);
+                }
             });
         });
     }
 
     getDocoDataByName(name) {
-        mongoose.connect(config.properties.MLAB_KEY);
-        mongoose.connection.on('error', (err) => {console.log(`connection error: ${err}`);});
-        return new Promise( (resolve,reject) =>{
-            mongoose.connection.once('open', () => {
-                Movies.find({name: name}, (err, result) => {
-                    if (err) reject(err);
-                    else {
-                        console.log(result);
-                        resolve(result);
-                    }
-                    mongoose.disconnect();
-                });
+    return new Promise( (resolve,reject) =>{
+            Movies.find({name: name}, (err, result) => {
+                if (err) reject(err);
+                else {
+                    console.log(`Got data from db: ${result}`);
+                    resolve(result);
+                }
             });
         });
     }
 
     filterDocosByMinYearAndDuration(year, duration) {
-        mongoose.connect(config.properties.MLAB_KEY);
-        mongoose.connection.on('error', (err) => {console.log(`connection error: ${err}`);});
-        return new Promise( (resolve,reject) =>{
-            mongoose.connection.once('open', () => {
-                Movies.find({year: year, duration: duration}, (err, result) => {
-                    if (err) reject(err);
-                    else {
-                        console.log(result);
-                        resolve(result);
-                    }
-                    mongoose.disconnect();
-                });
+    return new Promise( (resolve,reject) =>{
+            Movies.find({year:{$gt: year}, duration:{$gt:duration}}, (err, result) => {
+                if (err) reject(err);
+                else {
+                    console.log(`Got data from db: ${result}`);
+                    resolve(result);
+                }
             });
         });
     }

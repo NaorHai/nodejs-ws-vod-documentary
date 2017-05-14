@@ -3,7 +3,6 @@
  */
 const mongoose   = require('mongoose'),
       schema     = mongoose.Schema,
-      moment     = require('moment'),
       config     = require('./config'),
 
 docuMovie = new schema({

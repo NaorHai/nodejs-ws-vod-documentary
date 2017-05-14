@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/assets', express.static(__dirname + '/resources'));
 
 
+
 app.get('/', (req, res) =>{
     res.sendFile(`${__dirname}/index.html`);
 });
@@ -28,7 +29,7 @@ app.get('/app', (req, res) =>{
 
 app.get('/getAllDocos', (req, res, next)=> {
     vod.getAllDocos().then((result) => {
-        res.json(result);
+        result.length === 0 ? next() : res.json(result);
     }, (error) => {
         console.log(error);
         next();
@@ -37,7 +38,7 @@ app.get('/getAllDocos', (req, res, next)=> {
 
 app.post('/getDocoDataByName', (req, res, next)=> {
     vod.getDocoDataByName(req.body.name).then((result) => {
-        res.json(result);
+        result.length === 0 ? next() : res.json(result);
     }, (error) => {
         console.log(error);
         next();
@@ -46,18 +47,18 @@ app.post('/getDocoDataByName', (req, res, next)=> {
 
 app.post('/filterDocosByMinYearAndDuration', (req, res, next)=> {
     vod.filterDocosByMinYearAndDuration(req.body.year, req.body.duration).then((result) => {
-        res.json(result);
+        result.length === 0 ? next() : res.json(result);
     }, (error) => {
         console.log(error);
         next();
     });
 });
 
-app.all('*', (req, res)=> {
+app.all('*', (req, res, err)=> {
     res.json({
         "status":"404",
-        "error": "No results found",
-        "description": "The data is missing, or your query is invalid.",
+        "error": err ? "connection error" : "No results found",
+        "description": err || "The data is missing, or your query is invalid.",
         "at": moment().format(config.messageTemplates.TIME_FORMAT)
     });
 });
