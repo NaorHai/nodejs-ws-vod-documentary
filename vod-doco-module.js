@@ -29,7 +29,7 @@ class VOD {
 
     getDocoDataByName(name) {
     return new Promise( (resolve,reject) =>{
-            Movies.find({name: name}, (err, result) => {
+            Movies.find({name:  {'$regex': name}}, (err, result) => {
                 if (err) reject(err);
                 else {
                     console.log(`Got data from db: ${result}`);
