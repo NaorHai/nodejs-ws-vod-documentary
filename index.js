@@ -52,7 +52,6 @@ app.post('/filterDocosByMinYearAndDuration', (req, res, next)=> {
 });
 
 app.all('*', (req, res)=> {
-    console.log('No results found');
     res.json({
         "status":"404",
         "error": "No results found",
